@@ -26,22 +26,33 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "type": "bundle",
+                  "name": "polyfills",
+                  "baseline": "150kb",
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
+                },
+                {
+                  "type": "bundle",
+                  "name": "styles",
+                  "baseline": "3mb",
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
+                },
+                {
+                  "type": "bundle",
+                  "name": "main",
+                  "baseline": "1024kb",
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -94,13 +105,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }
